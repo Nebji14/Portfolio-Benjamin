@@ -177,11 +177,11 @@ const Skills = () => {
             {/* MODIF : "Stack Technique" */}
             <h2 className="text-4xl md:text-5xl font-bold text-white uppercase font-display">
               Stack{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400">
                 Technique
               </span>
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-transparent mt-4"></div>
+            <div className="h-1 w-24 bg-linear-to-r from-cyan-500 to-transparent mt-4"></div>
           </motion.div>
 
           {/* GRILLE BENTO OPTIMISÉE */}

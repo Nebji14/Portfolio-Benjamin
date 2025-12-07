@@ -21,7 +21,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-4 flex items-center gap-3"
           >
-            <div className="h-[2px] w-8 bg-cyan-500"></div>
+            <div className="h-0.5 w-8 bg-cyan-500"></div>
             <span className="text-xs md:text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase">
               Portfolio 2025
             </span>
@@ -38,14 +38,14 @@ const Home = () => {
           </motion.h2>
 
           {/* TITRE PRINCIPAL */}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-white uppercase leading-[1] font-display mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-white uppercase leading-none font-display mb-6">
             <div className="overflow-hidden">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 pb-2">
+              <span className="block text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500 pb-2">
                 <DecryptedText text="Développeur" delay={1000} />
               </span>
             </div>
             <div className="overflow-hidden">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 pb-2">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-500 via-pink-500 to-cyan-500 pb-2">
                 <DecryptedText text="Web & Mobile" delay={1200} />
               </span>
             </div>

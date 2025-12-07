@@ -22,7 +22,7 @@ const Contact = () => {
       className="relative w-full min-h-screen flex flex-col justify-between pt-20 lg:pt-0"
     >
       {/* --- CONTENU PRINCIPAL --- */}
-      <div className="flex-grow flex items-center justify-center px-4 sm:px-8">
+      <div className="grow flex items-center justify-center px-4 sm:px-8">
         <div className="w-full max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-center">
           {/* 1. COLONNE GAUCHE : INFOS CONTACT (3 colonnes) */}
           <motion.div
@@ -35,12 +35,12 @@ const Contact = () => {
             <div>
               <h2 className="text-4xl md:text-6xl font-bold text-white uppercase font-display mb-2 leading-tight">
                 Let's <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400">
                   Talk
                 </span>
               </h2>
               <p className="text-gray-400 text-sm mt-4 max-w-xs">
-                Disponible pour freelance & collaboration.
+                Disponible pour commencer a travailler ensemble.
               </p>
             </div>
 
@@ -229,7 +229,7 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+            className="fixed inset-0 z-200 flex items-center justify-center p-4"
           >
             {/* Fond sombre */}
             <div

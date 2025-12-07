@@ -3,6 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/logo.webp"; // Vérifie l'extension
 
+const NAV_ITEMS = [
+  { label: "Home", href: "#home", id: "home" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Skills", href: "#skills", id: "skills" },
+  { label: "Work", href: "#projects", id: "projects" },
+  { label: "Contact", href: "#contact", id: "contact" },
+];
+
 // --- 1. LIEN DESKTOP (Au survol) ---
 const ScrambleLink = ({ href, label, isActive, onClick }) => {
   const [displayText, setDisplayText] = useState(label);
@@ -55,7 +63,7 @@ const ScrambleLink = ({ href, label, isActive, onClick }) => {
         />
       )}
       {!isActive && (
-        <span className="absolute bottom-0 left-0 w-full h-[1px] bg-cyan-500/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left" />
+        <span className="absolute bottom-0 left-0 w-full h-px bg-cyan-500/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left" />
       )}
     </a>
   );
@@ -71,7 +79,7 @@ const MobileDecryptedLink = ({ href, label, index, isActive, onClick }) => {
 
     // MODIF : Vitesse ralentie pour bien voir l'effet
     const scramble = setInterval(() => {
-      setDisplayText((prev) =>
+      setDisplayText(() =>
         label
           .split("")
           .map((letter, i) => {
@@ -119,14 +127,7 @@ const Header = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: "Home", href: "#home", id: "home" },
-    { label: "About", href: "#about", id: "about" },
-    { label: "Skills", href: "#skills", id: "skills" },
-    { label: "Work", href: "#projects", id: "projects" },
-    { label: "Contact", href: "#contact", id: "contact" },
-  ];
-
+  // nav items are a stable module-level constant; run this effect once
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
@@ -138,12 +139,12 @@ const Header = () => {
     const observer = new IntersectionObserver(observerCallback, {
       threshold: 0.5,
     });
-    navItems.forEach((item) => {
+    NAV_ITEMS.forEach((item) => {
       const element = document.getElementById(item.id);
       if (element) observer.observe(element);
     });
     return () => observer.disconnect();
-  }, [navItems]);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
@@ -168,7 +169,7 @@ const Header = () => {
         </div>
 
         <nav className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <ScrambleLink
               key={item.id}
               {...item}
@@ -204,7 +205,7 @@ const Header = () => {
             </div>
 
             <nav className="flex flex-col gap-8 relative z-10 text-left">
-              {navItems.map((item, index) => (
+              {NAV_ITEMS.map((item, index) => (
                 <MobileDecryptedLink
                   key={item.id}
                   {...item}

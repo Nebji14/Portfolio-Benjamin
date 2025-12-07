@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import {
   FaGraduationCap,
@@ -64,8 +63,8 @@ const InfiniteMarquee = ({ items }) => {
           </div>
         ))}
       </motion.div>
-      <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#020202]/0 to-transparent z-10"></div>
-      <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#020202]/0 to-transparent z-10"></div>
+      <div className="absolute inset-y-0 left-0 w-10 bg-linear-to-r from-[#020202]/0 to-transparent z-10"></div>
+      <div className="absolute inset-y-0 right-0 w-10 bg-linear-to-l from-[#020202]/0 to-transparent z-10"></div>
     </div>
   );
 };
@@ -103,7 +102,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white uppercase">
               À Propos
             </h2>
-            <div className="h-1 w-16 bg-gradient-to-r from-cyan-500 to-purple-500 mt-4"></div>
+            <div className="h-1 w-16 bg-linear-to-r from-cyan-500 to-purple-500 mt-4"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -213,7 +212,7 @@ const About = () => {
 
             {/* 4. TRUST BAR */}
             <BentoCard
-              className="md:col-span-2 py-4 bg-gradient-to-r from-cyan-900/10 to-purple-900/10"
+              className="md:col-span-2 py-4 bg-linear-to-r from-cyan-900/10 to-purple-900/10"
               delay={0.3}
             >
               <div className="flex flex-col justify-center h-full">

@@ -73,7 +73,7 @@ const ProjectModal = ({ project, onClose }) => {
       exit={{ opacity: 0 }}
       // FIX MOBILE : Alignement haut (items-start) + padding top (pt-28) pour éviter la barre d'adresse
       // DESKTOP : Centré (items-center) + padding normal
-      className="fixed inset-0 z-[100] flex justify-center px-4 pb-4 items-start pt-28 sm:items-center sm:pt-0 sm:p-8"
+      className="fixed inset-0 z-100 flex justify-center px-4 pb-4 items-start pt-28 sm:items-center sm:pt-0 sm:p-8"
     >
       <div
         className="absolute inset-0 bg-black/90 backdrop-blur-sm"
@@ -99,7 +99,7 @@ const ProjectModal = ({ project, onClose }) => {
             alt={project.title}
             className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent md:bg-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-transparent to-transparent md:bg-none" />
         </div>
 
         <div className="w-full md:w-1/2 overflow-y-auto custom-scrollbar bg-[#0f0f0f] flex flex-col">
@@ -178,7 +178,7 @@ const ProjectCard = ({ project, onClick }) => {
           alt={project.title}
           className="w-full h-full object-cover opacity-50 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
       </div>
 
       <div className="absolute inset-0 p-5 flex flex-col justify-end">
@@ -231,7 +231,7 @@ const Work = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white uppercase font-display">
                 Mes{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400">
                   Projets
                 </span>
               </h2>
