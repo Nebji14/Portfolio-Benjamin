@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap");
+
+:root {
+  font-family: "Rajdhani", sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: #020202;
+  color: #ededed;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
