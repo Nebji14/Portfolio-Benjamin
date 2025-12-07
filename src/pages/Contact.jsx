@@ -23,7 +23,7 @@ const Contact = () => {
       {/* CONTENU PRINCIPAL */}
       <div className="grow flex items-center justify-center px-4 sm:px-8">
         <div className="w-full max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-center">
-          {/* 1. COLONNE GAUCHE : INFOS CONTACT (3 colonnes) */}
+          {/* COLONNE GAUCHE : INFOS CONTACT */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -43,7 +43,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 bg-black/60 backdrop-blur-md border border-white/10 p-6 rounded-2xl lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:p-0">
               {/* Email */}
               <a href="mailto:bendav@outlook.fr" className="block group">
                 <div className="flex items-center space-x-4 text-gray-300 transition-colors group-hover:text-cyan-400">
@@ -95,10 +95,10 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* 2. COLONNE MILIEU : ESPACE DRONE */}
+          {/* COLONNE MILIEU : ESPACE DRONE */}
           <div className="hidden lg:block lg:col-span-6 h-full pointer-events-none"></div>
 
-          {/* 3. COLONNE DROITE : RÉSEAUX  */}
+          {/* COLONNE DROITE : RÉSEAUX  */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -157,7 +157,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* FOOTER FINAL */}
+      {/* FOOTER */}
       <footer className="w-full py-8 mt-10 lg:mt-0 border-t border-white/5 bg-black/20 backdrop-blur-sm relative z-10">
         <div className="w-full max-w-[95%] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           {/* LOGO + Copyright */}
