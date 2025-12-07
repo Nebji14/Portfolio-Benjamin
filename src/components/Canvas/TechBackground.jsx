@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 const DroneModel = () => {
-  const { scene } = useGLTF("/happy_drone.glb");
+  const { scene } = useGLTF("./happy_drone.glb");
   const droneRef = useRef();
   const mouseRef = useRef();
   const mousePos = useRef({ x: 0, y: 0 });
