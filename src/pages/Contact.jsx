@@ -241,7 +241,7 @@ const Contact = () => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative bg-[#0f0f0f] border border-white/10 p-8 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto custom-scrollbar shadow-2xl"
+              className="relative bg-[#0f0f0f] border border-white/10 rounded-xl w-full shadow-2xl overflow-y-auto custom-scrollbar p-6 md:p-8 max-w-lg md:max-w-2xl max-h-[60vh] md:max-h-[80vh]"
             >
               <button
                 onClick={() => setShowLegal(false)}

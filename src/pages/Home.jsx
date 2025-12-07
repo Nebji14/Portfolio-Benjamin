@@ -35,7 +35,7 @@ const Home = () => {
           </motion.h2>
 
           {/* TITRE PRINCIPAL */}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-white uppercase leading-none font-display mb-6">
+          <h1 className="text-2xl md:text-5xl lg:text-7xl font-black tracking-tighter text-white uppercase leading-none font-display mb-6">
             <div className="overflow-hidden">
               <span className="block text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500 pb-2">
                 <DecryptedText text="Développeur" delay={1000} />
