@@ -5,9 +5,9 @@ import {
   FaUserAstronaut,
   FaCode,
 } from "react-icons/fa";
-import BenPhoto from "../assets/Ben.webp"; // Assure-toi du chemin correct
+import BenPhoto from "../assets/Ben.webp";
 
-// --- COMPOSANT CARTE BENTO ---
+// COMPOSANT CARTE BENTO
 const BentoCard = ({ children, className, delay = 0 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -40,7 +40,7 @@ const BentoCard = ({ children, className, delay = 0 }) => {
   );
 };
 
-// --- COMPOSANT TRUST BAR ---
+// COMPOSANT TRUST BAR
 const InfiniteMarquee = ({ items }) => {
   return (
     <div className="relative flex overflow-hidden w-full mask-linear-fade">
@@ -69,6 +69,7 @@ const InfiniteMarquee = ({ items }) => {
   );
 };
 
+// COMPOSANT ABOUT
 const About = () => {
   const softSkills = [
     "Autonomie",
@@ -106,10 +107,10 @@ const About = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* 1. PROFIL */}
+            {/*  PROFIL */}
             <BentoCard className="md:col-span-2 relative overflow-hidden">
               <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                {/* Photo agrandie (w-40 h-40) */}
+                {/* Photo */}
                 <div className="relative shrink-0">
                   <div className="w-40 h-40 rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl rotate-3 transition-transform group-hover:rotate-0 duration-500">
                     <img
@@ -132,10 +133,10 @@ const About = () => {
                     </span>
                   </h3>
                   <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Développeur focalisé sur la <strong>performance</strong> et
-                    l'expérience utilisateur. J'aborde chaque projet avec une
-                    logique rigoureuse pour produire un code propre, structuré
-                    et évolutif.
+                    Développeur exigeant, je place la structure et la{" "}
+                    <strong>performance</strong> au cœur de mes projets. Je
+                    produis un code propre et optimisé pour garantir une
+                    expérience utilisateur fluide et sans faille.
                   </p>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     Ma plus grande qualité est ma{" "}
@@ -151,7 +152,7 @@ const About = () => {
               </div>
             </BentoCard>
 
-            {/* 2. FORMATION */}
+            {/*  FORMATION */}
             <BentoCard delay={0.1}>
               <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
                 <FaGraduationCap className="text-purple-500" /> Formation
@@ -179,7 +180,7 @@ const About = () => {
               </ul>
             </BentoCard>
 
-            {/* 3. EXPERIENCE PRO */}
+            {/*  PARCOURS */}
             <BentoCard delay={0.2}>
               <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
                 <FaBriefcase className="text-pink-500" /> Parcours
@@ -210,7 +211,7 @@ const About = () => {
               </ul>
             </BentoCard>
 
-            {/* 4. TRUST BAR */}
+            {/* TRUST BAR */}
             <BentoCard
               className="md:col-span-2 py-4 bg-linear-to-r from-cyan-900/10 to-purple-900/10"
               delay={0.3}

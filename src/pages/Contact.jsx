@@ -9,7 +9,6 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-// Assure-toi que ton logo est bien ici
 import LogoImg from "../assets/Logo.webp";
 
 const Contact = () => {
@@ -21,7 +20,7 @@ const Contact = () => {
       id="contact"
       className="relative w-full min-h-screen flex flex-col justify-between pt-20 lg:pt-0"
     >
-      {/* --- CONTENU PRINCIPAL --- */}
+      {/* CONTENU PRINCIPAL */}
       <div className="grow flex items-center justify-center px-4 sm:px-8">
         <div className="w-full max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-center">
           {/* 1. COLONNE GAUCHE : INFOS CONTACT (3 colonnes) */}
@@ -96,10 +95,10 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* 2. COLONNE MILIEU : ESPACE DRONE (6 colonnes - VIDE) */}
+          {/* 2. COLONNE MILIEU : ESPACE DRONE */}
           <div className="hidden lg:block lg:col-span-6 h-full pointer-events-none"></div>
 
-          {/* 3. COLONNE DROITE : RÉSEAUX (3 colonnes) */}
+          {/* 3. COLONNE DROITE : RÉSEAUX  */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -158,7 +157,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* --- FOOTER FINAL --- */}
+      {/* FOOTER FINAL */}
       <footer className="w-full py-8 mt-10 lg:mt-0 border-t border-white/5 bg-black/20 backdrop-blur-sm relative z-10">
         <div className="w-full max-w-[95%] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           {/* LOGO + Copyright */}
@@ -222,7 +221,7 @@ const Contact = () => {
         </div>
       </footer>
 
-      {/* --- MODALE MENTIONS LÉGALES (Overlay) --- */}
+      {/* MODALE MENTIONS LÉGALES */}
       <AnimatePresence>
         {showLegal && (
           <motion.div

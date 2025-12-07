@@ -55,7 +55,7 @@ const projects = [
   },
 ];
 
-// --- MODALE (On garde Framer Motion juste pour l'ouverture/fermeture de la modale) ---
+// MODALE (On garde Framer Motion juste pour l'ouverture/fermeture de la modale)
 const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -71,7 +71,7 @@ const ProjectModal = ({ project, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      // FIX MOBILE : Alignement haut (items-start) + padding top (pt-28) pour éviter la barre d'adresse
+      // MOBILE : Alignement haut + padding top pour éviter la barre d'adresse
       // DESKTOP : Centré (items-center) + padding normal
       className="fixed inset-0 z-100 flex justify-center px-4 pb-4 items-start pt-28 sm:items-center sm:pt-0 sm:p-8"
     >
@@ -164,12 +164,11 @@ const ProjectModal = ({ project, onClose }) => {
   );
 };
 
-// --- CARTE STANDARD (Sans animation d'entrée = 0 bugs) ---
+// CARTE STANDARD
 const ProjectCard = ({ project, onClick }) => {
   return (
     <div
       onClick={() => onClick(project)}
-      // CSS pur pour le hover : scale-105 sur l'image et -translate-y-1 sur la carte
       className="group relative h-64 w-full rounded-xl overflow-hidden border border-white/10 bg-gray-800 cursor-pointer transition-all duration-300 hover:border-white/30 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="absolute inset-0 bg-[#121212]">

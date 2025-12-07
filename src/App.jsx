@@ -4,10 +4,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Work from "./pages/Work";
-import Contact from "./pages/Contact"; // <-- AJOUT DE L'IMPORT
+import Contact from "./pages/Contact";
 import TechBackground from "./components/Canvas/TechBackground";
 
-// SmoothScrollManager (Code caché pour lisibilité, ne change pas) ...
+// Smooth Scroll
 function SmoothScrollManager() {
   useEffect(() => {
     const handleClick = (e) => {
@@ -58,14 +58,11 @@ function App() {
 
       <Header />
 
-      {/* NOTE : J'ai retiré 'pb-32' ici pour que le Footer (dans Contact) ne flotte pas au-dessus du vide */}
       <div className="relative z-10 flex flex-col w-full">
         <Home />
         <About />
         <Skills />
         <Work />
-
-        {/* Remplacement de la section placeholder par le composant final */}
         <Contact />
       </div>
     </main>

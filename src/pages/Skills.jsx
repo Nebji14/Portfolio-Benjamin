@@ -27,7 +27,7 @@ import {
 import { VscVscode } from "react-icons/vsc";
 import { TbInfinity } from "react-icons/tb";
 
-// --- DONNÉES ---
+// DONNÉES
 const skillCategories = [
   {
     title: "Front-End",
@@ -78,7 +78,7 @@ const skillCategories = [
   },
 ];
 
-// --- COMPOSANT CARTE "LUMINOUS" ---
+// COMPOSANT CARTE
 const SkillCard = ({ title, items, color, index, className = "" }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -116,7 +116,7 @@ const SkillCard = ({ title, items, color, index, className = "" }) => {
         }}
       />
 
-      {/* Header HUD */}
+      {/* Header  */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5 relative z-10">
         <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-gray-300 group-hover:text-white transition-colors">
           {title}
@@ -166,7 +166,7 @@ const Skills = () => {
       className="relative w-full min-h-screen py-32 px-6 flex flex-col justify-center"
     >
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* CONTENU (Gauche - 7 colonnes) */}
+        {/* CONTENU */}
         <div className="col-span-1 lg:col-span-7 flex flex-col gap-12">
           {/* Titre */}
           <motion.div
@@ -174,7 +174,7 @@ const Skills = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
           >
-            {/* MODIF : "Stack Technique" */}
+            {/* STACK TECHNIQUE */}
             <h2 className="text-4xl md:text-5xl font-bold text-white uppercase font-display">
               Stack{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400">
@@ -184,20 +184,20 @@ const Skills = () => {
             <div className="h-1 w-24 bg-linear-to-r from-cyan-500 to-transparent mt-4"></div>
           </motion.div>
 
-          {/* GRILLE BENTO OPTIMISÉE */}
+          {/* GRILLE BENTO  */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* 1. FRONT-END (Prend toute la largeur en haut) */}
+            {/* FRONT-END  */}
             <div className="md:col-span-2">
               <SkillCard {...skillCategories[0]} index={0} color="cyan" />
             </div>
 
-            {/* 2. BACK-END (1 colonne) */}
+            {/* BACK-END  */}
             <SkillCard {...skillCategories[1]} index={1} color="purple" />
 
-            {/* 3. OUTILS (1 colonne) */}
+            {/* OUTILS  */}
             <SkillCard {...skillCategories[2]} index={2} color="pink" />
 
-            {/* 4. DESIGN (Toute la largeur en bas, compact) */}
+            {/* DESIGN  */}
             <div className="md:col-span-2">
               <SkillCard
                 {...skillCategories[3]}
@@ -209,8 +209,7 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* ESPACE DRONE (Droite - 5 colonnes) */}
-        {/* MODIF : Suppression des traits décoratifs, zone vide pour le drone */}
+        {/* ESPACE DRONE */}
         <div className="hidden lg:block lg:col-span-5 relative">
           {/* Le drone viendra se placer ici grâce au TechBackground */}
         </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.webp"; // Vérifie l'extension
+import logo from "../assets/logo.webp";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#home", id: "home" },
@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { label: "Contact", href: "#contact", id: "contact" },
 ];
 
-// --- 1. LIEN DESKTOP (Au survol) ---
+// LIEN DESKTOP
 const ScrambleLink = ({ href, label, isActive, onClick }) => {
   const [displayText, setDisplayText] = useState(label);
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
@@ -69,7 +69,7 @@ const ScrambleLink = ({ href, label, isActive, onClick }) => {
   );
 };
 
-// --- 2. LIEN MOBILE (Décryptage LENT / CINÉMATIQUE) ---
+// LIEN MOBILE
 const MobileDecryptedLink = ({ href, label, index, isActive, onClick }) => {
   const [displayText, setDisplayText] = useState(label);
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
@@ -77,7 +77,6 @@ const MobileDecryptedLink = ({ href, label, index, isActive, onClick }) => {
   useEffect(() => {
     let iteration = 0;
 
-    // MODIF : Vitesse ralentie pour bien voir l'effet
     const scramble = setInterval(() => {
       setDisplayText(() =>
         label
@@ -96,10 +95,8 @@ const MobileDecryptedLink = ({ href, label, index, isActive, onClick }) => {
         clearInterval(scramble);
       }
 
-      // MODIF : On incrémente doucement (0.2 au lieu de 0.5)
-      // Plus ce chiffre est petit, plus le décryptage est long
       iteration += 0.2;
-    }, 60); // MODIF : Délai entre chaque changement (60ms au lieu de 40ms)
+    }, 60);
 
     return () => clearInterval(scramble);
   }, [label]);
@@ -127,7 +124,6 @@ const Header = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // nav items are a stable module-level constant; run this effect once
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {

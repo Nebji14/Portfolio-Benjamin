@@ -33,9 +33,9 @@ const DroneModel = () => {
 
     let mm = gsap.matchMedia();
 
-    // --- CONFIG PC (Desktop) ---
+    // CONFIG PC
     mm.add("(min-width: 1024px)", () => {
-      // 1. HOME
+      // HOME
       gsap.set(drone.position, { x: 3, y: 2, z: -4 });
       gsap.set(drone.rotation, { x: 0, y: -0.5, z: 0 });
       gsap.set(drone.scale, { x: 0, y: 0, z: 0 });
@@ -58,28 +58,28 @@ const DroneModel = () => {
         },
       });
 
-      // 2. ABOUT
+      // ABOUT
       tl.to(drone.position, { x: -5, y: 2, z: -8 }, "step1").to(
         drone.rotation,
         { x: 0.2, y: 0.8, z: 0.1 },
         "step1"
       );
 
-      // 3. SKILLS (VOS VALEURS : x: 6, y: 2.2)
+      // SKILLS
       tl.to(drone.position, { x: 5, y: 2.2, z: -6 }, "step2").to(
         drone.rotation,
         { x: -0.2, y: -0.5, z: -0.1 },
         "step2"
       );
 
-      // 4. WORK (VOS VALEURS : x: -5, y: 0)
+      //  WORK
       tl.to(drone.position, { x: -4, y: 2, z: -5 }, "step3").to(
         drone.rotation,
         { x: 0.1, y: 0.5, z: 0 },
         "step3"
       );
 
-      // 5. CONTACT (VOS VALEURS : x: 0, y: -1)
+      // CONTACT
       tl.to(drone.position, { x: 0, y: 2.2, z: -3 }, "step4").to(
         drone.rotation,
         { x: 0, y: 0, z: 0 },
@@ -87,7 +87,7 @@ const DroneModel = () => {
       );
     });
 
-    // --- CONFIG MOBILE (STATIQUE) ---
+    // CONFIG MOBILE
     mm.add("(max-width: 1023px)", () => {
       gsap.set(drone.position, { x: 0, y: 2.5, z: -7 });
       gsap.set(drone.rotation, { x: 0.2, y: 0, z: 0 });
@@ -101,7 +101,7 @@ const DroneModel = () => {
         ease: "elastic.out(1, 0.75)",
         delay: 0.5,
       });
-      // PAS DE SCROLL TRIGGER
+      // PAS DE SCROLL
     });
 
     return () => mm.revert();

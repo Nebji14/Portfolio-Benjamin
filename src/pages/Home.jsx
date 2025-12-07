@@ -9,10 +9,7 @@ const Home = () => {
     >
       {/* Conteneur Texte */}
       <div className="z-10 w-full md:w-2/3 flex flex-col items-start md:pl-20 mt-10 md:mt-0">
-        {/* --- MODIF MOBILE: Conteneur Glassmorphism --- 
-            Ce div ajoute un fond flouté UNIQUEMENT sur mobile (md:bg-transparent retire l'effet sur PC) 
-            pour que le texte soit lisible sur le drone centré.
-        */}
+        {/* MODIF MOBILE */}
         <div className="w-full p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 md:bg-transparent md:backdrop-blur-none md:border-none md:p-0">
           {/* Tagline */}
           <motion.div
@@ -83,7 +80,7 @@ const Home = () => {
         {/* Fin du conteneur Glassmorphism */}
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Indicateur de Scroll */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
