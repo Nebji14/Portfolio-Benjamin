@@ -9,7 +9,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-import LogoImg from "../assets/Logo.webp";
+import LogoImg from "../assets/logo.webp";
 
 const Contact = () => {
   // État pour gérer l'ouverture/fermeture des Mentions Légales
