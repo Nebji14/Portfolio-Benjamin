@@ -68,7 +68,7 @@ const Home = () => {
           >
             <a
               href="#projects"
-              className="group relative px-6 py-3 bg-white text-black font-bold text-sm rounded-sm overflow-hidden inline-block hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+              className="group relative px-6 py-3 bg-white text-black font-bold text-sm rounded-sm overflow-hidden block w-full md:inline-block md:w-auto text-center hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.2)]"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                 EXPLORER MON TRAVAIL
