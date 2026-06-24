@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -6,6 +6,7 @@ import Skills from "./pages/Skills";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import TechBackground from "./components/Canvas/TechBackground";
+import LoadingScreen from "./components/UI/LoadingScreen";
 
 // Smooth Scroll
 function SmoothScrollManager() {
@@ -48,23 +49,30 @@ function SmoothScrollManager() {
 }
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden text-white font-sans selection:bg-cyan-500/30 selection:text-white">
       <SmoothScrollManager />
 
       <Suspense fallback={null}>
-        <TechBackground />
+        <TechBackground isLoaded={isLoaded} />
       </Suspense>
 
-      <Header />
+      {!isLoaded && <LoadingScreen onLoaded={() => setIsLoaded(true)} />}
 
-      <div className="relative z-10 flex flex-col w-full">
-        <Home />
-        <About />
-        <Skills />
-        <Work />
-        <Contact />
-      </div>
+      {isLoaded && (
+        <>
+          <Header />
+          <div className="relative z-10 flex flex-col w-full">
+            <Home />
+            <About />
+            <Skills />
+            <Work />
+            <Contact />
+          </div>
+        </>
+      )}
     </main>
   );
 }

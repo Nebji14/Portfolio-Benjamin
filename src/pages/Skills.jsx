@@ -9,6 +9,9 @@ import {
   FaGithub,
   FaDocker,
   FaFigma,
+  FaPython,
+  FaDatabase,
+  FaPhp,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -23,9 +26,12 @@ import {
   SiSupabase,
   SiNetlify,
   SiThreedotjs,
+  SiNextdotjs,
+  SiSanity,
+  SiStripe,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
-import { TbInfinity } from "react-icons/tb";
+import { TbInfinity, TbApi } from "react-icons/tb";
 
 // DONNÉES
 const skillCategories = [
@@ -38,6 +44,7 @@ const skillCategories = [
       { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       { name: "React", icon: FaReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
       { name: "Tailwind", icon: SiTailwindcss, color: "#38B2AC" },
       { name: "Three.js", icon: SiThreedotjs, color: "#FFFFFF" },
       { name: "Framer Motion", icon: SiFramer, color: "#E10098" },
@@ -45,25 +52,31 @@ const skillCategories = [
     ],
   },
   {
-    title: "Back-End",
+    title: "Back-End & Data",
     color: "purple",
     items: [
       { name: "Node.js", icon: FaNodeJs, color: "#339933" },
       { name: "Express", icon: SiExpress, color: "#ffffff" },
-      { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "Python", icon: FaPython, color: "#3776AB" },
+      { name: "PHP", icon: FaPhp, color: "#777BB4" },
+      { name: "API REST", icon: TbApi, color: "#FF5733" },
+      { name: "SQL", icon: FaDatabase, color: "#F29111" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
     ],
   },
   {
-    title: "Outils & CI/CD",
+    title: "Outils & Services",
     color: "pink",
     items: [
       { name: "VS Code", icon: VscVscode, color: "#007ACC" },
       { name: "Git", icon: FaGitAlt, color: "#F05032" },
       { name: "GitHub", icon: FaGithub, color: "#ffffff" },
-      { name: "Netlify", icon: SiNetlify, color: "#00C7B7" },
+      { name: "Sanity CMS", icon: SiSanity, color: "#F03E2F" },
+      { name: "Stripe", icon: SiStripe, color: "#008CDD" },
       { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+      { name: "Netlify", icon: SiNetlify, color: "#00C7B7" },
       { name: "Docker", icon: FaDocker, color: "#2496ED" },
     ],
   },
@@ -83,7 +96,6 @@ const SkillCard = ({ title, items, color, index, className = "" }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Mapping des couleurs pour le gradient dynamique
   const colorMap = {
     cyan: "rgba(6, 182, 212, 0.15)",
     purple: "rgba(139, 92, 246, 0.15)",
@@ -108,7 +120,6 @@ const SkillCard = ({ title, items, color, index, className = "" }) => {
       onMouseMove={handleMouseMove}
       className={`group relative flex flex-col h-full bg-gray-900/60 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors ${className}`}
     >
-      {/* EFFET DE GLOW SOURIS */}
       <motion.div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
@@ -116,7 +127,6 @@ const SkillCard = ({ title, items, color, index, className = "" }) => {
         }}
       />
 
-      {/* Header  */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5 relative z-10">
         <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-gray-300 group-hover:text-white transition-colors">
           {title}
@@ -126,20 +136,17 @@ const SkillCard = ({ title, items, color, index, className = "" }) => {
         />
       </div>
 
-      {/* Grille d'icônes */}
       <div
-        className={`p-6 gap-6 relative z-10 ${
-          items.length <= 4
+        className={`p-6 gap-6 relative z-10 ${items.length <= 4
             ? "flex flex-wrap justify-around items-center"
             : "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5"
-        }`}
+          }`}
       >
         {items.map((skill, i) => (
           <div
             key={i}
             className="flex flex-col items-center gap-2 group/icon relative"
           >
-            {/* Icône */}
             <div className="relative p-3 rounded-xl bg-white/5 border border-white/5 transition-all duration-300 group-hover/icon:border-white/20 group-hover/icon:bg-white/10 group-hover/icon:-translate-y-1">
               <skill.icon
                 size={28}
@@ -148,7 +155,6 @@ const SkillCard = ({ title, items, color, index, className = "" }) => {
               />
             </div>
 
-            {/* Tooltip */}
             <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 absolute -bottom-4 whitespace-nowrap z-20 bg-black/80 px-1 rounded">
               {skill.name}
             </span>
@@ -166,38 +172,30 @@ const Skills = () => {
       className="relative w-full min-h-screen py-32 px-6 flex flex-col justify-center"
     >
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* CONTENU */}
         <div className="col-span-1 lg:col-span-7 flex flex-col gap-12">
-          {/* Titre */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
           >
-            {/* STACK TECHNIQUE */}
             <h2 className="text-4xl md:text-5xl font-bold text-white uppercase font-display">
               Stack{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
                 Technique
               </span>
             </h2>
-            <div className="h-1 w-24 bg-linear-to-r from-cyan-500 to-transparent mt-4"></div>
+            <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-transparent mt-4"></div>
           </motion.div>
 
-          {/* GRILLE BENTO  */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* FRONT-END  */}
             <div className="md:col-span-2">
               <SkillCard {...skillCategories[0]} index={0} color="cyan" />
             </div>
 
-            {/* BACK-END  */}
             <SkillCard {...skillCategories[1]} index={1} color="purple" />
 
-            {/* OUTILS  */}
             <SkillCard {...skillCategories[2]} index={2} color="pink" />
 
-            {/* DESIGN  */}
             <div className="md:col-span-2">
               <SkillCard
                 {...skillCategories[3]}
@@ -209,9 +207,7 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* ESPACE DRONE */}
         <div className="hidden lg:block lg:col-span-5 relative">
-          {/* Le drone viendra se placer ici grâce au TechBackground */}
         </div>
       </div>
     </section>

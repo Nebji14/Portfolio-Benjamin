@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const DroneModel = () => {
-  const { scene } = useGLTF("./happy_drone.glb");
+const DroneModel = ({ isLoaded }) => {
+  const { scene } = useGLTF("./happy_drone_draco.glb", true);
   const droneRef = useRef();
   const mouseRef = useRef();
   const mousePos = useRef({ x: 0, y: 0 });
@@ -24,7 +24,7 @@ const DroneModel = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!droneRef.current) return;
+    if (!droneRef.current || !isLoaded) return;
     const drone = droneRef.current;
 
     gsap.killTweensOf(drone.position);
@@ -105,7 +105,7 @@ const DroneModel = () => {
     });
 
     return () => mm.revert();
-  }, []);
+  }, [isLoaded]);
 
   useFrame(() => {
     if (window.innerWidth >= 1024 && mouseRef.current) {
@@ -123,7 +123,7 @@ const DroneModel = () => {
   });
 
   return (
-    <group ref={droneRef}>
+    <group ref={droneRef} scale={0}>
       <Float
         speed={4}
         rotationIntensity={0.5}
@@ -140,7 +140,7 @@ const DroneModel = () => {
   );
 };
 
-const TechBackground = () => {
+const TechBackground = ({ isLoaded }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10 bg-[#020202] overflow-hidden">
       <motion.div
@@ -185,10 +185,12 @@ const TechBackground = () => {
           color="#d946ef"
         />
         <Environment preset="city" />
-        <DroneModel />
+        <DroneModel isLoaded={isLoaded} />
       </Canvas>
     </div>
   );
 };
 
 export default TechBackground;
+
+useGLTF.preload("./happy_drone_draco.glb");
